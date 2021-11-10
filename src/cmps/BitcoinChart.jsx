@@ -13,7 +13,6 @@ import {
 } from "recharts";
 
 export function BitcoinChart() {
-  let data = [];
   const [bitcoinData, setbitcoinData] = useState([]);
 
   useEffect(() => {
@@ -21,23 +20,22 @@ export function BitcoinChart() {
   }, []);
 
   const getBitcoinData = (timeType, aggregate) => {
-    data = [];
     bitcoinService.getPriceBy(timeType, aggregate).then((prices) => {
-      prices.data.map((price) => {
+      let data = prices.data.map((price) => {
         if (timeType === "histoday") {
-          data.push({
+          return {
             name: price.Date.substring(5, 10),
             uv: price.High,
             pv: price.Low,
             amt: price.Open,
-          });
+          };
         } else {
-          data.push({
+          return {
             name: price.Date.substring(10, 16),
             uv: price.High,
             pv: price.Low,
             amt: price.Open,
-          });
+          };
         }
       });
       setbitcoinData(data);
@@ -81,7 +79,7 @@ export function BitcoinChart() {
             top: 10,
             right: 0,
             left: 0,
-            bottom: 50,
+            bottom: 100,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />

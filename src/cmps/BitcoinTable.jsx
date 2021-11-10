@@ -11,7 +11,6 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 
 export function BitcoinTable() {
-  let rows = [];
   const [coinRows, setcoinRows] = useState([]);
 
   useEffect(() => {
@@ -19,28 +18,22 @@ export function BitcoinTable() {
   }, []);
 
   const getBitcoinData = (timeType, aggregate) => {
-    rows = [];
     bitcoinService.getPriceBy(timeType, aggregate).then((prices) => {
-      prices.data.map((price) => {
+    let rows = prices.data.map((price) => {
         if (timeType === "histoday") {
-          rows.push(
-            createData(
-              price.Date.substring(0, 10),
-              price.High,
-              price.Low,
-              price.Open,
-              price.Close
-            )
-          );
+          return createData(
+            price.Date.substring(0, 10),
+            price.High,
+            price.Low,
+            price.Open,
+            price.Close);
         } else {
-          rows.push(
-            createData(
-              price.Date.substring(10, 16),
-              price.High,
-              price.Low,
-              price.Open,
-              price.Close
-            )
+          return createData(
+            price.Date.substring(10, 16),
+            price.High,
+            price.Low,
+            price.Open,
+            price.Close
           );
         }
       });
