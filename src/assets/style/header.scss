@@ -1,19 +1,40 @@
 
 .header-container{
-    background-color: orange;
+    background-color: rgb(255, 255, 255);
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-top: 14px;
+    margin-left: 0px;
+    margin-right: 0px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 6px 0px;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-    width: 100% !important;
-    height: 70px;
-    cursor: pointer;
+}
+
+.arrow{
+    width: 20px;
+   height: 20px;
+   filter: saturate(70%);
 }
 
 .summary {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 140%;
+    font-weight: bold;
+
+    img {
+        margin-left: 5px;
+    }
 }
 
 .live-stream {
     margin-right: 30px;
     font-size: 35px;
+}
+
+.presents {
+    font-size: 20px;
 }
