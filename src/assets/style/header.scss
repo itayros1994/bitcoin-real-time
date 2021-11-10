@@ -1,0 +1,19 @@
+
+.header-container{
+    background-color: orange;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100% !important;
+    height: 70px;
+    cursor: pointer;
+}
+
+.summary {
+    margin-left: 20px;
+}
+
+.live-stream {
+    margin-right: 30px;
+    font-size: 35px;
+}
