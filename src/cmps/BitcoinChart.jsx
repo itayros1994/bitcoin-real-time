@@ -70,29 +70,30 @@ export function BitcoinChart() {
         >
           {buttons}
         </ButtonGroup>
-
-        <AreaChart
-          width={1400}
-          height={600}
-          data={bitcoinData}
-          margin={{
-            top: 10,
-            right: 0,
-            left: 0,
-            bottom: 100,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="uv"
-            stroke="rgb(255, 255, 255)"
-            fill="#f6a000"
-          />
-        </AreaChart>
+        <div className="area-charts">
+          <AreaChart
+            width={1400}
+            height={600}
+            data={bitcoinData}
+            margin={{
+              top: 10,
+              right: 0,
+              left: 0,
+              bottom: 100,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="uv"
+              stroke="rgb(255, 255, 255)"
+              fill="#f6a000"
+            />
+          </AreaChart>
+        </div>
       </div>
     </ResponsiveContainer>
   );

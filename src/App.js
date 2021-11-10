@@ -13,13 +13,13 @@ function App() {
         <Header />
         <Switch>
           <div className="main-container">
-        <TabsIcons/>
+            <TabsIcons />
             {routes.map(route => {
               return <Route key={route.path} exact component={route.component} path={route.path} />
             })}
           </div>
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
     </div>
   );

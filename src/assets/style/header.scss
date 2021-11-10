@@ -16,13 +16,14 @@
     width: 20px;
    height: 20px;
    filter: saturate(70%);
+   margin-right: 10px;
 }
 
 .summary {
     margin-left: 20px;
     display: flex;
     align-items: center;
-    font-size: 140%;
+    font-size: 160%;
     font-weight: bold;
 
     img {
@@ -39,8 +40,13 @@
     font-size: 20px;
 }
 
-.price-change {
+.price-change-green {
     font-size: 18px;
     margin-right: 10px;
     color: green;
+}
+.price-change-red {
+    font-size: 18px;
+    margin-right: 10px;
+    color: red;
 }
