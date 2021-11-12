@@ -17,9 +17,9 @@ export function TabsIcons() {
         <Tabs
           value={value}
           onChange={handleChange}
-          textColor="inherit"
+          textColor="primary"
           variant="scrollable"
-          indicatorColor="primary"
+          indicatorColor="secondary"
           aria-label="secondary tabs example"
         >
           <Link className="page-link" to="/">

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import Loader from "react-loader-spinner";
+import { useSelector } from "react-redux";
 import { bitcoinService } from "../services/bitcoinServices";
 import {
   AreaChart,
@@ -15,16 +17,19 @@ import {
 export function BitcoinChart() {
   const [bitcoinData, setbitcoinData] = useState([]);
 
+  const { coinType, currCoinImg } = useSelector((state) => state.bitcoinModule);
+
   useEffect(() => {
     getBitcoinData("histohour", 1);
-  }, []);
+    console.log(bitcoinData);
+  }, [coinType]);
 
   const getBitcoinData = (timeType, aggregate) => {
-    bitcoinService.getPriceBy(timeType, aggregate).then((prices) => {
+    bitcoinService.getPriceBy(timeType, aggregate, coinType).then((prices) => {
       let data = prices.data.map((price) => {
         if (timeType === "histoday") {
           return {
-            name: price.Date.substring(5, 10),
+            name: price.Date.substring(5, 10).split("/").reverse().join("/"),
             uv: price.High,
             pv: price.Low,
             amt: price.Open,
@@ -58,10 +63,25 @@ export function BitcoinChart() {
     </Button>,
   ];
 
-  if (!bitcoinData.length) return "lodaing...";
+  if (!bitcoinData.length)
+    return (
+      <div className="loader">
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          top={50}
+          margin-top={-50}
+          margin-left={0}
+          margin-right={0}
+          timeout={4000} //3 secs
+        />
+      </div>
+    );
   return (
-    <ResponsiveContainer>
-      <div className="overview-container">
+    <div className="overview-container">
+      <div className="top-container">
         <ButtonGroup
           className="buttons-group"
           variant="outlined"
@@ -70,31 +90,55 @@ export function BitcoinChart() {
         >
           {buttons}
         </ButtonGroup>
-        <div className="area-charts">
-          <AreaChart
-            width={1400}
-            height={600}
-            data={bitcoinData}
-            margin={{
-              top: 10,
-              right: 0,
-              left: 0,
-              bottom: 100,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="uv"
-              stroke="rgb(255, 255, 255)"
-              fill="#f6a000"
+        <div className="arrows-container">
+          <div className="positive-value">
+            High: <span className="dollar-sign">$</span>
+            {bitcoinData[30].uv.toLocaleString()}
+            <img
+              className="arrow2 animate-flicker"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/1200px-Dark_Green_Arrow_Up.svg.png"
+              alt=""
             />
-          </AreaChart>
+          </div>
+          <div className="header-coin-iqon-contianer">
+            <img className="header-coin-iqon" src={currCoinImg} alt="" />
+            <span className="cointype-white">{coinType}</span>
+          </div>
+          <div className="negative-value">
+            Low: <span className="dollar-sign">$</span>
+            {bitcoinData[30].pv.toLocaleString()}
+            <img
+              className="arrow3 animate-flicker"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Red_Arrow_Down.svg/1200px-Red_Arrow_Down.svg.png"
+              alt=""
+            />
+          </div>
         </div>
+        <div></div>
+        <AreaChart
+          className="area-charts"
+          width={1000}
+          height={500}
+          data={bitcoinData}
+          margin={{
+            top: 10,
+            right: 0,
+            left: 0,
+            bottom: 100,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Area
+            type="monotone"
+            dataKey="uv"
+            stroke="rgb(255, 255, 255)"
+            fill="#f6a000"
+          />
+        </AreaChart>
       </div>
-    </ResponsiveContainer>
+    </div>
   );
 }

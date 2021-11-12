@@ -3,11 +3,14 @@
 @import "../style//history.scss";
 @import "../style/overview.scss";
 @import "../style/mobile.scss";
+@import "../style/flicker.scss";
+@import ".//animated.scss";
+@import ".//dropdown.scss";
 
 body {
   background-color: #172631;
   margin: auto;
-  // height: 1000px;
+  height: 1100px;
 }
 
 .main-container {
@@ -33,3 +36,36 @@ body {
   position:fixed;
 
 }
+
+.loader {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.coin-logo{
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.coins-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .drop-down{
+//   background-color: #ffffff;
+//   // margin: 20px;
+// }
+
+.coin-symbol{
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.select-container{
+  width: 500px;
+}
+

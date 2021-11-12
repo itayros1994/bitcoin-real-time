@@ -11,21 +11,23 @@
   margin: 20px;
   text-decoration: none;
   color: rgb(0, 0, 0);
-  box-shadow: rgba(32, 22, 22, 0.16) 0px 1px 4px;
+  // box-shadow: rgba(32, 22, 22, 0.16) 0px 1px 4px;
+  width: 100px;
 }
 
 .tabs-container {
   border-radius: 9px;
-  background-color: #f09e33;
+  background-color: #172631;
   width: 100%;
   height: 80px;
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(31, 30, 30, 0.16) 0px 1px 4px;
+  border: 2px solid rgba(255, 255, 255, 0.50);
 }
 
 .gRbvbW:hover {

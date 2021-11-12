@@ -4,3 +4,48 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .positive-value{
+   color: rgb(38, 212, 38); 
+  }
+  
+  .negative-value{
+   color: rgb(251, 55, 55); 
+   margin-left: 15px;
+  }
+  .top-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  
+  .arrows-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    font-family: 'CoreCircus';
+
+  }
+
+  .arrow2 {
+    width: 20px;
+    height: 20px;
+    filter: saturate(70%);
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  .arrow3 {
+    width: 20px;
+    height: 20px;
+    filter: saturate(70%);
+    margin-top: 4px;
+    margin-left: 7px;
+  }
+
+  .dollar-sign{
+    color: rgb(251, 136, 4);
+  }
+
+ 

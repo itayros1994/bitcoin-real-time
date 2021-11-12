@@ -3,6 +3,8 @@ import { Header } from './cmps/Header';
 import { routes } from './routes';
 import { TabsIcons } from './cmps/TabsIcons';
 import { Footer } from './cmps/Footer';
+import { DropDown } from './cmps/DropDown';
+import { Tabs } from './cmps/Tabs';
 import './assets/style/main.scss'
 
 function App() {
@@ -11,9 +13,12 @@ function App() {
     <div className="App">
       <Router>
         <Header />
+        {/* <DropDown /> */}
         <Switch>
           <div className="main-container">
-            <TabsIcons />
+            {/* <TabsIcons /> */}
+            <Tabs/>
+            {/* <DropDown/> */}
             {routes.map(route => {
               return <Route key={route.path} exact component={route.component} path={route.path} />
             })}

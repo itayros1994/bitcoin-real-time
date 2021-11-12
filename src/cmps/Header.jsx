@@ -1,74 +1,98 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { DropDown } from "../cmps/DropDown";
 
 export function Header() {
   const [currBitcoinRate, setCurrBitcoinRate] = useState("68,234.12");
   const [percentChange, setpercentChange] = useState("4.05");
   const [coinValueChange, setcoinValueChange] = useState("1,500.22");
+  const [lastUpdate, setLastUpdate] = useState("2021-11-11T07:13:14.000Z");
+  const [previousCoin, setPreviousCoin] = useState("");
 
-  let socket = new WebSocket("wss://wstest.fxempire.com?token=btctothemoon");
-  socket.onopen = function (e) {
-    console.log(e);
-    socket.send(
-      JSON.stringify({ type: "SUBSCRIBE", instruments: ["cc-btc-usd-cccagg"] })
-    );
-  };
+  const { coinType, currCoinImg } = useSelector((state) => state.bitcoinModule);
+  const ws = useRef(null);
 
-  socket.onmessage = function (event) {
-    // console.log(JSON.parse(event.data));
-    let data = JSON.parse(event.data);
-    console.log(data["cc-btc-usd-cccagg"]);
-    setCurrBitcoinRate(data["cc-btc-usd-cccagg"].last);
-    setpercentChange(data["cc-btc-usd-cccagg"].percentChange);
-    setcoinValueChange(data["cc-btc-usd-cccagg"].change);
-  };
+  useEffect(() => {
+    ws.current = new WebSocket("wss://wstest.fxempire.com?token=btctothemoon");
+    ws.current.onopen = function (e) {
+      ws.current.send(
+        JSON.stringify({
+          type: "SUBSCRIBE",
+          instruments: [`cc-${coinType}-usd-cccagg`],
+        })
+      );
+    };
 
-  socket.onclose = function (event) {
-    socket.send(
-      JSON.stringify({
-        type: "UNSUBSCRIBE",
-        instruments: ["cc-btc-usd-cccagg"],
-      })
-    );
-  };
+    ws.current.onmessage = function (event) {
+      let data = JSON.parse(event.data);
+      setCurrBitcoinRate(data[`cc-${coinType}-usd-cccagg`].last);
+      setpercentChange(data[`cc-${coinType}-usd-cccagg`].percentChange);
+      setcoinValueChange(data[`cc-${coinType}-usd-cccagg`].change);
+      setLastUpdate(data[`cc-${coinType}-usd-cccagg`].lastUpdate);
+    };
 
-  socket.onerror = function (error) {
-    console.log(`[error] ${error.message}`);
-  };
+    ws.current.onerror = function (error) {};
+    setPreviousCoin(coinType);
+    const wsCurrent = ws.current;
 
+    ws.current.onclose = function (event) {
+      wsCurrent.send(
+        JSON.stringify({
+          type: "UNSUBSCRIBE",
+          instruments: [`cc-${previousCoin}-usd-cccagg`],
+        })
+      );
+    };
+
+    return () => {
+      wsCurrent.close();
+    };
+  }, [coinType]);
+
+  // Check  If Arrow Should Be Green / Red
   const checkValue = () => {
-    // check if Positive
+    // Check if Positive
     if (percentChange > 0) return true;
-    // check if negative
+    // Check if negative
     else {
       return false;
     }
   };
-  
+
   return (
     <div className="header-container">
-      <div className="summary">
-        Bitcoin
-        <img
-          src="https://responsive.fxempire.com/v7/_fxcrypto_/crypto/crypto-logos/btc.png?func=cover&q=70&width=25&height=25"
-          alt=""
-        />
+      <h1 className="flicker" data-heading="B">
+        itcoin<span className="green-point">.</span>
+      </h1>
+      <div className="drop-down-container">
+        <DropDown />
       </div>
       <div className="live-stream">
         <div>
           <span>
             <img
-              className="arrow"
-              src={checkValue() ? `https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/1200px-Dark_Green_Arrow_Up.svg.png` : `https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Red_Arrow_Down.svg/1200px-Red_Arrow_Down.svg.png`}
+              className="arrow animate-flicker"
+              src={
+                checkValue()
+                  ? `https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/1200px-Dark_Green_Arrow_Up.svg.png`
+                  : `https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Red_Arrow_Down.svg/1200px-Red_Arrow_Down.svg.png`
+              }
               alt=""
             />
           </span>
-          {currBitcoinRate.toLocaleString()}
+          ${currBitcoinRate.toLocaleString()}
         </div>
         <div className="presents">
-          <span className={checkValue() ? "price-change-green" : "price-change-red"}>
+          <span
+            className={checkValue() ? "price-change-green" : "price-change-red"}
+          >
             {coinValueChange.toLocaleString()}
           </span>
           ({percentChange}%)
+        </div>
+        <div className="last-update">
+          <img className="header-coin-iqon" src={currCoinImg} alt="" />
+          last update : {lastUpdate.substring(11, 16)}
         </div>
       </div>
     </div>

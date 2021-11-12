@@ -1,45 +1,84 @@
 @media only screen and (max-width: 600px) {
-    .area-charts {
-        width: 200px;
-        height: 500px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-    }
-.recharts-surface{
-    width: 350px;
-    height:200px;
-}
+  .area-charts {
+    width: 200px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .recharts-surface {
+    width: 100%;
+    height: 30%;
+    // transform: scale(2.5);
+    // transform: translate(2%, -6%);s
+    // position: relative !important;
+    transform:translate3d(0px, 126px, 0px);
+    display: none;
+  }
 
-.recharts-wrapper{
-    height: 100px;
-}
+  .recharts-wrapper {
+    position: sticky !important;
+    cursor: default;
+    // height: 100px;
+    width: 100px !important;
+    height: 100px !important;
+    transform: scaleY(100%);
+  }
 
-.gWWDGh{
+  .gWWDGh {
     width: 113% !important;
-}
+  }
 
-.hoLhNJ{
+  .hoLhNJ {
     min-width: 50px !important;
-}
-
-.cSqbTj {
-    font-weight: bold!important;
-    font-size:8.5px !important;
   }
-.fGTacx{
-  font-weight: bold !important;
-  font-size: 8.5px !important;
-}
-.XDAue{
-  font-weight:bold !important;
-  font-size: 8.5px !important;
-}
 
-.krNoFk{
-  font-weight:bold !important;
-  font-size: 8.5px !important;
-
-} 
-
+  .cSqbTj {
+    font-weight: bold !important;
+    font-size: 8.5px !important;
   }
+  .fGTacx {
+    font-weight: bold !important;
+    font-size: 8.5px !important;
+  }
+  .XDAue {
+    font-weight: bold !important;
+    font-size: 8.5px !important;
+  }
+
+  .krNoFk {
+    font-weight: bold !important;
+    font-size: 8.5px !important;
+  }
+
+  .live-stream {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 20px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+    width: 90%;
+  }
+
+  .select-container {
+    width: 300px !important;
+  }
+
+  .overview-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 400px;
+    background-color: #fff;
+  }
+}
