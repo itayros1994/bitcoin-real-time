@@ -138,6 +138,7 @@ export function BitcoinChart() {
             fill="#f6a000"
           />
         </AreaChart>
+        <div className="unfortunately">Unfortunately Carths Is Not Availibal For Mobile</div>
       </div>
     </div>
   );

@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { DropDown } from "../cmps/DropDown";
 
 export function Header() {
-  const [currBitcoinRate, setCurrBitcoinRate] = useState("68,234.12");
-  const [percentChange, setpercentChange] = useState("4.05");
-  const [coinValueChange, setcoinValueChange] = useState("1,500.22");
-  const [lastUpdate, setLastUpdate] = useState("2021-11-11T07:13:14.000Z");
-  const [previousCoin, setPreviousCoin] = useState("");
+  const [currBitcoinRate, setCurrBitcoinRate] = useState("N/A");
+  const [percentChange, setpercentChange] = useState("N/A");
+  const [coinValueChange, setcoinValueChange] = useState("N/A");
+  const [lastUpdate, setLastUpdate] = useState("N/A");
+  const [previousCoin, setPreviousCoin] = useState("N/A");
 
   const { coinType, currCoinImg } = useSelector((state) => state.bitcoinModule);
   const ws = useRef(null);
@@ -49,16 +49,6 @@ export function Header() {
     };
   }, [coinType]);
 
-  // Check  If Arrow Should Be Green / Red
-  const checkValue = () => {
-    // Check if Positive
-    if (percentChange > 0) return true;
-    // Check if negative
-    else {
-      return false;
-    }
-  };
-
   return (
     <div className="header-container">
       <h1 className="flicker" data-heading="B">
@@ -73,7 +63,7 @@ export function Header() {
             <img
               className="arrow animate-flicker"
               src={
-                checkValue()
+                percentChange > 0
                   ? `https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dark_Green_Arrow_Up.svg/1200px-Dark_Green_Arrow_Up.svg.png`
                   : `https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Red_Arrow_Down.svg/1200px-Red_Arrow_Down.svg.png`
               }
@@ -84,7 +74,9 @@ export function Header() {
         </div>
         <div className="presents">
           <span
-            className={checkValue() ? "price-change-green" : "price-change-red"}
+            className={
+              percentChange > 0 ? "price-change-green" : "price-change-red"
+            }
           >
             {coinValueChange.toLocaleString()}
           </span>
