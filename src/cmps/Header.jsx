@@ -56,7 +56,7 @@ export function Header() {
       </h1>
       <div className="drop-down-container">
         <DropDown />
-        <a href={`https://coinmarketcap.com/currencies/${coinName}/`}> <img className="coin-hero-header" src={currCoinImg} alt="" /></a>
+         {/* <img className="coin-hero-header" src={currCoinImg} alt="" /></a> */}
         <span className="coin-type-hero">{coinType.toUpperCase()}{<img className="coin-hero-input" src={currCoinImg} alt="" />}</span>
       </div>
       <div className="live-stream">
@@ -85,7 +85,7 @@ export function Header() {
           ({percentChange}%)
         </div>
         <div className="last-update">
-          <img className="header-coin-iqon" src={currCoinImg} alt="" />
+        <a href={`https://coinmarketcap.com/currencies/${coinName}/`}> <img className="header-coin-iqon" src={currCoinImg} alt="" /></a>
           last update : {lastUpdate.substring(11, 16)}
         </div>
       </div>
