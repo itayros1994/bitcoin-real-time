@@ -16,3 +16,12 @@ export function setCoinImg(imgUrl) {
       dispatch(action)
   }
 }
+export function setCoinName(coinName) {
+  return (dispatch) => {
+      const action = {
+        type: 'SET_COIN_NAME',
+        coinName
+      }
+      dispatch(action)
+  }
+}

@@ -21,7 +21,7 @@ export function BitcoinChart() {
 
   useEffect(() => {
     getBitcoinData("histohour", 1);
-    console.log(bitcoinData);
+    console.log(bitcoinData[2]);
   }, [coinType]);
 
   const getBitcoinData = (timeType, aggregate) => {
@@ -117,7 +117,7 @@ export function BitcoinChart() {
         <div></div>
         <AreaChart
           className="area-charts"
-          width={1000}
+          width={1400}
           height={500}
           data={bitcoinData}
           margin={{
@@ -132,13 +132,15 @@ export function BitcoinChart() {
           <YAxis />
           <Tooltip />
           <Area
-            type="monotone"
+            type="linear"
             dataKey="uv"
             stroke="rgb(255, 255, 255)"
             fill="#f6a000"
           />
         </AreaChart>
-        <div className="unfortunately">Unfortunately Carths Is Not Availibal For Mobile</div>
+        <div className="unfortunately">
+          Unfortunately Carths Is Not Availibal For Mobile
+        </div>
       </div>
     </div>
   );

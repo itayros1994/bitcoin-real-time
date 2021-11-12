@@ -10,16 +10,6 @@
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png"
     },
     {
-      "coinName": "Binance Coin",
-      "nameCode" :"btc",
-      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"
-    },
-    {
-      "coinName": "Tether",
-      "nameCode" :"USDT",
-      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png"
-    },
-    {
       "coinName": "Solana",
       "nameCode" :"sol",
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png"
@@ -40,14 +30,24 @@
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/6636.png"
     },
     {
-      "coinName": "USD Coin",
-      "nameCode" :"usdc",
-      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
-    },
-    {
       "coinName": "Dogecoin",
       "nameCode" :"doge",
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/74.png"
+    },
+    {
+      "coinName": "Avalanche",
+      "nameCode" :"avax",
+      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/5805.png"
+    },
+    {
+      "coinName": "Axie Infinity",
+      "nameCode" :"axs",
+      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/6783.png"
+    },
+    {
+      "coinName": "Internet Computer",
+      "nameCode" :"icp",
+      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png"
     },
     {
       "coinName": "Terra",

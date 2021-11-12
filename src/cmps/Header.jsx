@@ -9,7 +9,7 @@ export function Header() {
   const [lastUpdate, setLastUpdate] = useState("N/A");
   const [previousCoin, setPreviousCoin] = useState("N/A");
 
-  const { coinType, currCoinImg } = useSelector((state) => state.bitcoinModule);
+  const { coinType, currCoinImg, coinName} = useSelector((state) => state.bitcoinModule);
   const ws = useRef(null);
 
   useEffect(() => {
@@ -56,6 +56,8 @@ export function Header() {
       </h1>
       <div className="drop-down-container">
         <DropDown />
+        <a href={`https://coinmarketcap.com/currencies/${coinName}/`}> <img className="coin-hero-header" src={currCoinImg} alt="" /></a>
+        <span className="coin-type-hero">{coinType.toUpperCase()}{<img className="coin-hero-input" src={currCoinImg} alt="" />}</span>
       </div>
       <div className="live-stream">
         <div>

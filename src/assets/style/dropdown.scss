@@ -1,8 +1,18 @@
 .drop-down {
     background-color: white;
+    margin-bottom: 30px;
   }
 
   .drop-down-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
+
+  .coin-hero-header{
+    width: 70px;
+    height: 70px;
+    margin-left: 25px;
+
+  }
+  
