@@ -11,12 +11,10 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
 } from "recharts";
 
 export function BitcoinChart() {
   const [bitcoinData, setbitcoinData] = useState([]);
-
   const { coinType, currCoinImg } = useSelector((state) => state.bitcoinModule);
 
   useEffect(() => {
@@ -100,9 +98,9 @@ export function BitcoinChart() {
               alt=""
             />
           </div>
-          <div className="header-coin-iqon-contianer">
+          <div className="header-coin-iqon-container">
             <img className="header-coin-iqon" src={currCoinImg} alt="" />
-            <span className="cointype-white">{coinType}</span>
+            <span className="coin-type-white">{coinType}</span>
           </div>
           <div className="negative-value">
             Low: <span className="dollar-sign">$</span>
@@ -114,7 +112,6 @@ export function BitcoinChart() {
             />
           </div>
         </div>
-        <div></div>
         <AreaChart
           className="area-charts"
           width={1400}
@@ -138,9 +135,10 @@ export function BitcoinChart() {
             fill="#f6a000"
           />
         </AreaChart>
-        <div className="unfortunately">
-          Unfortunately Carths Is Not Availibal For Mobile
-        </div>
+        <div></div>
+      </div>
+      <div className="unfortunately">
+        Unfortunately the Chart is not available for mobile mode 📱
       </div>
     </div>
   );

@@ -4,23 +4,18 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useDispatch } from "react-redux";
+import coins from "../data/coin.json";
 import {
   setCoinType,
   setCoinImg,
   setCoinName,
 } from "../store/action/bitcoin.action";
-import { useDispatch } from "react-redux";
-import coins from "../data/coin.json";
 
 export function DropDown() {
   const dispatch = useDispatch();
-  const [coin, setCoin] = React.useState("");
   const [coinTypeName, setcoinTypeName] = useState("");
-  const [open, setOpen] = React.useState(false);
-
-  const handleChange = (event) => {
-    setCoin(event.target.value);
-  };
+  const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -49,16 +44,13 @@ export function DropDown() {
             alt=""
           />{" "}
         </div>
-        <InputLabel id="demo-simple-select-standard-label">
+        <InputLabel>
           {coinTypeName.toUpperCase()}
         </InputLabel>
         <Select
           className="select-container"
-          labelId="demo-simple-select-standard-label"
-          id="demo-simple-select-standard"
           label={coinTypeName}
           value={coinTypeName}
-          onChange={handleChange}
           onClose={handleClose}
           onOpen={handleOpen}
           open={open}

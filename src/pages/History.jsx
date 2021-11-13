@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { bitcoinService } from "../services/bitcoinServices";
+import React from "react";
 import { BitcoinTable } from "../cmps/BitcoinTable";
 
 export function History() {

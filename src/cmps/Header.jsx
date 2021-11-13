@@ -9,9 +9,11 @@ export function Header() {
   const [lastUpdate, setLastUpdate] = useState("N/A");
   const [previousCoin, setPreviousCoin] = useState("N/A");
 
-  const { coinType, currCoinImg, coinName} = useSelector((state) => state.bitcoinModule);
-  const ws = useRef(null);
+  const { coinType, currCoinImg, coinName } = useSelector(
+    (state) => state.bitcoinModule
+  );
 
+  const ws = useRef(null);
   useEffect(() => {
     ws.current = new WebSocket("wss://wstest.fxempire.com?token=btctothemoon");
     ws.current.onopen = function (e) {
@@ -56,8 +58,10 @@ export function Header() {
       </h1>
       <div className="drop-down-container">
         <DropDown />
-         {/* <img className="coin-hero-header" src={currCoinImg} alt="" /></a> */}
-        <span className="coin-type-hero">{coinType.toUpperCase()}{<img className="coin-hero-input" src={currCoinImg} alt="" />}</span>
+        <span className="coin-type-hero">
+          {coinType.toUpperCase()}
+          {<img className="coin-hero-input" src={currCoinImg} alt="" />}
+        </span>
       </div>
       <div className="live-stream">
         <div>
@@ -85,7 +89,10 @@ export function Header() {
           ({percentChange}%)
         </div>
         <div className="last-update">
-        <a href={`https://coinmarketcap.com/currencies/${coinName}/`}> <img className="header-coin-iqon" src={currCoinImg} alt="" /></a>
+          <a href={`https://coinmarketcap.com/currencies/${coinName}/`}>
+            {" "}
+            <img className="header-coin-iqon" src={currCoinImg} alt="" />
+          </a>
           last update : {lastUpdate.substring(11, 16)}
         </div>
       </div>

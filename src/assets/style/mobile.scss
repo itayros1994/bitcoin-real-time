@@ -6,12 +6,10 @@
     display: flex;
     justify-content: center;
   }
+
   .recharts-surface {
     width: 100%;
     height: 30%;
-    // transform: scale(2.5);
-    // transform: translate(2%, -6%);s
-    // position: relative !important;
     transform: translate3d(0px, 126px, 0px);
     display: none;
   }
@@ -92,7 +90,7 @@
     transform: translate(-66px, -21px);
   }
 
-  .unfortunately{
+  .unfortunately {
     display: block;
     color: white;
     font-size: 20px;
@@ -100,21 +98,14 @@
   }
 
   .negative-value {
- display: none; 
-}
+    display: none;
+  }
   .positive-value {
- display: none; 
-}
+    display: none;
+  }
 
-// .header-coin-iqon-overview {
-//   display: none;
-//   margin-right: 1px;
-//   height: 50px;
-//   width: 50px;
-//   bottom: 20px;
-//   right: 210px;
-//   position: absolute;
-// }
-
+  .top-container{
+   display: none;
+  }
 
 }
