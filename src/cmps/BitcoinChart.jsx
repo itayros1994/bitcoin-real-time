@@ -15,10 +15,11 @@ import {
 
 export function BitcoinChart() {
   const [bitcoinData, setbitcoinData] = useState([]);
-  const { coinType, currCoinImg } = useSelector((state) => state.bitcoinModule);
+  const [filterBy, setFilterBy] = useState('1 Week');
+  const { coinType, currCoinImg ,coinName} = useSelector((state) => state.bitcoinModule);
 
   useEffect(() => {
-    getBitcoinData("histohour", 1);
+    getBitcoinData("histoday", 7);
     console.log(bitcoinData[2]);
   }, [coinType]);
 
@@ -99,7 +100,7 @@ export function BitcoinChart() {
             />
           </div>
           <div className="header-coin-iqon-container">
-            <img className="header-coin-iqon" src={currCoinImg} alt="" />
+          <a href={`https://coinmarketcap.com/currencies/${coinName}/`}>  <img className="header-coin-iqon" src={currCoinImg} alt="" /></a>
             <span className="coin-type-white">{coinType}</span>
           </div>
           <div className="negative-value">
@@ -114,7 +115,7 @@ export function BitcoinChart() {
         </div>
         <AreaChart
           className="area-charts"
-          width={1400}
+          width={1100}
           height={500}
           data={bitcoinData}
           margin={{
@@ -127,7 +128,7 @@ export function BitcoinChart() {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip />
+          <Tooltip/>
           <Area
             type="linear"
             dataKey="uv"
@@ -135,10 +136,9 @@ export function BitcoinChart() {
             fill="#f6a000"
           />
         </AreaChart>
-        <div></div>
       </div>
       <div className="unfortunately">
-        Unfortunately the Chart is not available for mobile mode 📱
+        Unfortunately the Charts is not available for mobile mode 📱
       </div>
     </div>
   );

@@ -10,6 +10,11 @@
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png"
     },
     {
+      "coinName": "Binance Coin",
+      "nameCode" :"bnb",
+      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png"
+    },
+    {
       "coinName": "Solana",
       "nameCode" :"sol",
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png"
@@ -45,9 +50,14 @@
       "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/6783.png"
     },
     {
-      "coinName": "Internet Computer",
-      "nameCode" :"icp",
-      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/8916.png"
+      "coinName": "TRON",
+      "nameCode" :"trx",
+      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png"
+    },
+    {
+      "coinName": "Fantom",
+      "nameCode" :"ftm",
+      "imgUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/3513.png"
     },
     {
       "coinName": "Terra",

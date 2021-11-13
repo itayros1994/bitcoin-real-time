@@ -108,7 +108,6 @@ h1 {
     height: 20px;
     position: static;
     
-
     &:before {
       transform: translate(-40px, 5px);
       content: attr(data-heading);
