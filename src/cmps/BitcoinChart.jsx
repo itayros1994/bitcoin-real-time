@@ -138,7 +138,7 @@ export function BitcoinChart() {
         </AreaChart>
       </div>
       <div className="unfortunately">
-        Unfortunately the Charts is not available for mobile mode 📱
+        Unfortunately The Charts Is Not Available For Mobile Mode 📱
       </div>
     </div>
   );

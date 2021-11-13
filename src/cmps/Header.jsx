@@ -14,6 +14,7 @@ export function Header() {
   );
 
   const ws = useRef(null);
+
   useEffect(() => {
     ws.current = new WebSocket("wss://wstest.fxempire.com?token=btctothemoon");
     ws.current.onopen = function (e) {
@@ -34,6 +35,7 @@ export function Header() {
     };
 
     ws.current.onerror = function (error) {};
+
     setPreviousCoin(coinType);
     const wsCurrent = ws.current;
 
@@ -99,3 +101,6 @@ export function Header() {
     </div>
   );
 }
+
+
+
