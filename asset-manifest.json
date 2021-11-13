@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/bitcoin-real-time/static/css/main.fd5a07ed.chunk.css",
-    "main.js": "/bitcoin-real-time/static/js/main.7dd6c68c.chunk.js",
-    "main.js.map": "/bitcoin-real-time/static/js/main.7dd6c68c.chunk.js.map",
+    "main.css": "/bitcoin-real-time/static/css/main.256d331d.chunk.css",
+    "main.js": "/bitcoin-real-time/static/js/main.f4874f14.chunk.js",
+    "main.js.map": "/bitcoin-real-time/static/js/main.f4874f14.chunk.js.map",
     "runtime-main.js": "/bitcoin-real-time/static/js/runtime-main.9ccb1cd8.js",
     "runtime-main.js.map": "/bitcoin-real-time/static/js/runtime-main.9ccb1cd8.js.map",
     "static/js/2.0ab927df.chunk.js": "/bitcoin-real-time/static/js/2.0ab927df.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.e63c8a0a.chunk.js": "/bitcoin-real-time/static/js/3.e63c8a0a.chunk.js",
     "static/js/3.e63c8a0a.chunk.js.map": "/bitcoin-real-time/static/js/3.e63c8a0a.chunk.js.map",
     "index.html": "/bitcoin-real-time/index.html",
-    "static/css/main.fd5a07ed.chunk.css.map": "/bitcoin-real-time/static/css/main.fd5a07ed.chunk.css.map",
+    "static/css/main.256d331d.chunk.css.map": "/bitcoin-real-time/static/css/main.256d331d.chunk.css.map",
     "static/js/2.0ab927df.chunk.js.LICENSE.txt": "/bitcoin-real-time/static/js/2.0ab927df.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9ccb1cd8.js",
     "static/js/2.0ab927df.chunk.js",
-    "static/css/main.fd5a07ed.chunk.css",
-    "static/js/main.7dd6c68c.chunk.js"
+    "static/css/main.256d331d.chunk.css",
+    "static/js/main.f4874f14.chunk.js"
   ]
 }
